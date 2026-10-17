@@ -1,0 +1,18 @@
+---
+import { Image } from "astro:assets";
+import MeanwhileMobile from "../assets/meanwhile_mobile.webp";
+import MeanwhileDesktop from "../assets/meanwhile_desktop.webp";
+---
+
+<section class="w-full h-full max-h-screen overflow-hidden">
+    <Image
+        class="hidden lg:block w-full h-full object-cover absolute inset-0"
+        src={MeanwhileDesktop}
+        alt="Imagen publicitaria del nuevo libro Un Nuevo León por Samuel García"
+    />
+    <Image
+        class="lg:hidden w-full h-full object-cover absolute inset-0 aspect-9/16"
+        src={MeanwhileMobile}
+        alt="Imagen publicitaria del nuevo libro Un Nuevo León por Samuel García"
+    />
+</section>
