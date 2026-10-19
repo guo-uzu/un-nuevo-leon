@@ -1,18 +1,27 @@
 ---
 import { Image } from "astro:assets";
-import MeanwhileMobile from "../assets/meanwhile_mobile.webp";
-import MeanwhileDesktop from "../assets/meanwhile_desktop.webp";
+import UpperText from "../assets/UpperText.png";
+import UpperTextDesktop from "../assets/UpperText_Desktop.webp";
+import Book from "../assets/Book.png";
 ---
 
-<section class="w-full h-full max-h-screen overflow-hidden">
-    <Image
-        class="hidden lg:block w-full h-full object-cover absolute inset-0"
-        src={MeanwhileDesktop}
-        alt="Imagen publicitaria del nuevo libro Un Nuevo León por Samuel García"
-    />
-    <Image
-        class="lg:hidden w-full h-full object-cover absolute inset-0 aspect-9/16"
-        src={MeanwhileMobile}
-        alt="Imagen publicitaria del nuevo libro Un Nuevo León por Samuel García"
-    />
+<section class="relative w-full h-svh overflow-hidden bg-[linear-gradient(to_bottom,#d4d4d4,#e1e1e1)]">
+    <!-- Book + banner live in one wrapper: everything is sized relative to the book -->
+    <div class="absolute top-1/2 left-1/2 w-[76%] -translate-1/2 md:max-w-140">
+        <Image
+            class="absolute inset-0 scale-200 lg:scale-300 xl:scale-400 lg:-top-[16%] -top-[20%] xl:-top-[14%] xl:-left-20 z-10 hidden h-auto w-full md:block"
+            src={UpperTextDesktop}
+            alt=""
+        />
+        <Image
+            class="block h-auto w-full max-auto drop-shadow-[2.5vmin_2.5vmin_3vmin_rgba(0,0,0,0.25)]"
+            src={Book}
+            alt="Imagen publicitaria del nuevo libro Un Nuevo León por Samuel García"
+        />
+        <Image
+            class="absolute -top-[22%] -left-[19%] z-10 h-auto w-[150%] max-w-none md:hidden"
+            src={UpperText}
+            alt=""
+        />
+    </div>
 </section>
