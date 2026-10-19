@@ -1,27 +1,27 @@
 ---
 import { Image } from "astro:assets";
-import UpperText from "../assets/UpperText.png";
-import UpperTextDesktop from "../assets/UpperText_Desktop.webp";
 import Book from "../assets/Book.png";
+import UpperText from "../assets/UpperText.webp";
 ---
 
-<section class="relative w-full h-svh overflow-hidden bg-[linear-gradient(to_bottom,#d4d4d4,#e1e1e1)]">
-    <!-- Book + banner live in one wrapper: everything is sized relative to the book -->
-    <div class="absolute top-1/2 left-1/2 w-[76%] -translate-1/2 md:max-w-140">
+<section class="grid h-svh w-full place-items-center overflow-hidden bg-[linear-gradient(to_bottom,#d4d4d4,#e1e1e1)]">
+    <!-- [container-type:inline-size] lets children use cqw = 1% of the book's width -->
+    <div class="relative w-[min(35rem,78vw,55svh)] [container-type:inline-size]">
+        <!-- Banner group: same anchor + rotation as before, now holding the bar AND the image -->
+        <div class="absolute left-1/2 top-[-7%] z-10 w-[200%] -translate-x-1/2 -translate-y-1/2 -rotate-12 md:w-[340%]">
+            <!-- Orange extension: much wider than any screen, so the ribbon always bleeds off both sides -->
+            <div class="absolute left-1/2 top-[calc(50%+0.4cqw)] h-[12.1cqw] w-[300vw] -translate-x-1/2 -translate-y-1/2 bg-[#f18423] md:h-[20.5cqw] md:top-[calc(50%+0.4cqw)]"></div>
+            <Image
+                class="relative block w-full max-w-none lg:-left-[110px]"
+                src={UpperText}
+                alt="Imagen publicitaria del nuevo libro Un Nuevo León por Samuel García"
+            />
+        </div>
+
         <Image
-            class="absolute inset-0 scale-200 lg:scale-300 xl:scale-400 lg:-top-[16%] -top-[20%] xl:-top-[14%] xl:-left-20 z-10 hidden h-auto w-full md:block"
-            src={UpperTextDesktop}
-            alt=""
-        />
-        <Image
-            class="block h-auto w-full max-auto drop-shadow-[2.5vmin_2.5vmin_3vmin_rgba(0,0,0,0.25)]"
+            class="relative z-0 block h-auto w-full drop-shadow-[2.5vmin_2.5vmin_3vmin_rgba(0,0,0,0.25)]"
             src={Book}
             alt="Imagen publicitaria del nuevo libro Un Nuevo León por Samuel García"
-        />
-        <Image
-            class="absolute -top-[22%] -left-[19%] z-10 h-auto w-[150%] max-w-none md:hidden"
-            src={UpperText}
-            alt=""
         />
     </div>
 </section>
